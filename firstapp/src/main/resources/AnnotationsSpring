@@ -1,0 +1,5 @@
+@Controller @Respository  @Component  @Service
+
+
+
+BankController -> BankService -> BankRepository -> DB

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+                http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- we can do autowire byType/byName -->
+
+	<bean id="student" class="com.test.firstapp.Student" autowire="byType">
+		<property name="id" value="50" />
+		<property name="name" value="Sam" />
+	</bean>
+
+	<bean id="address" class="com.test.firstapp.Address">
+		<property name="city" value="Chicago" />
+		<property name="country" value="USA" />
+	</bean>
+	<bean id="adress1" class="com.test.firstapp.Address" autowire-candidate="false">
+		<property name="city" value="Delhi" />
+		<property name="country" value="India" />
+	</bean>
+
+
+
+
+
+</beans>
+
+
+
+<!-- <property name="id" value="10"></property> -->

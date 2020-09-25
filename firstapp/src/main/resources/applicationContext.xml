@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+                http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="student" class="com.test.firstapp.Student" scope="prototype">
+		<constructor-arg value="10" type="int"></constructor-arg>
+		<constructor-arg value="Sam" type="String"></constructor-arg>
+		<constructor-arg ref="address" />
+	</bean>
+	<bean id="address" class="com.test.firstapp.Address" scope="singleton">
+		<constructor-arg value="Chicago" type="String"
+			index="1"></constructor-arg>
+		<constructor-arg value="USA" type="String" index="0"></constructor-arg>
+	</bean>
+
+	<bean id="std" class="com.test.firstapp.Student" scope="singleton">
+		<constructor-arg value="10" type="int"></constructor-arg>
+		<constructor-arg value="Sam" type="String"></constructor-arg>
+		<constructor-arg>
+			<bean id="addr" class="com.test.firstapp.Address"
+				scope="prototype">
+				<constructor-arg value="Chicago" type="String"></constructor-arg>
+				<constructor-arg value="USA" type="String"></constructor-arg>
+			</bean>
+		</constructor-arg>
+
+	</bean>
+
+	<!-- Inner beans with setter injection -->
+	
+	<bean id="ad" class="com.test.firstapp.Address">
+		<property name="city" value="Chicago" />
+		<property name="country" value="USA" />
+	</bean>
+
+	<bean id="stdnt" class="com.test.firstapp.Student">
+		<property name="id" value="50" />
+		<property name="name" value="Sam" />
+		<property name="address">
+			<bean id="adr" class="com.test.firstapp.Address">
+				<property name="city" value="Chicago" />
+				<property name="country" value="USA" />
+			</bean>
+		</property>
+
+	</bean>
+
+
+
+
+
+
+
+</beans>
+
+
+
+<!-- <property name="id" value="10"></property> -->

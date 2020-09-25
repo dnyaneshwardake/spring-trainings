@@ -1,0 +1,28 @@
+Circular dependacy problen in spring beans 		
+	
+1. Re-Design 
+2. User Setter injection
+3. Useing @Lazy
+4. @PostConstruct
+5. Imlementing ApplicationContextAware and InitilizingBean
+
+		A -> B -> C -> A
+		
+# Bean life cycle methods		
+	Steps :	
+	1. 	Container started - > xml parsing - sprin core usage SAX, validated 
+	2. Bean instantiated
+	3. Dependacy injected.
+	4. custom init() method
+	5. custom utility() method
+	6. predestroy()
+	6. custom destry() method			
+		
+		
+Autowiring using xml
+		byName, ByType(this is for the setters injection)  autodetect(both setter and constructor injection)
+		to resolve ambuguty we have autowire-candidate=false (default value is true)
+Autowire using Annotatons.	
+				@Atowired and @Qualifire("id")to handle duplicates beans errors
+				
+				
