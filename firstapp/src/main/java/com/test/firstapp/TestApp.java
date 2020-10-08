@@ -11,10 +11,9 @@ public class TestApp {
 
 	public static void main(String[] args) {
 
-		// ApplicationContext context = new
-		// ClassPathXmlApplicationContext("classpath:applicationContext.xml");
-		// Student bean = (Student) context.getBean("std");
-		// Student bean1 = (Student) context.getBean("student");
+		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+		Student bean = (Student) context.getBean("std");
+		Student bean1 = (Student) context.getBean("student");
 
 		// Address address = (Address) context.getBean("address");
 		// System.out.println(address);

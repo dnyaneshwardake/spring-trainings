@@ -1,31 +1,25 @@
 package com.test.firstapp;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Student {
 	private int id;
 	private String name;
-	private Address address;
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", address=" + address + "]";
+		return "Student [id=" + id + ", name=" + name;
 	}
 
-	public Student(int id, String name, Address address) {
+	public Student(int id, String name) {
 		this.id = id;
 		this.name = name;
-		this.address = address;
-		System.out.println("Student Cons called - para 3");
+		System.out.println("Student Cons called - para 2");
 	}
 
 	public Student() {
+		System.out.println("Defalt cons called..");
 	}
 
 	public Student(int id) {
