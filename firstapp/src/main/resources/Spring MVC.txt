@@ -1,0 +1,40 @@
+Spring MVC Features: 
+1. Form backup support
+2. Controller Support
+    - Controller (I) (Core Controller)
+	- AbstractController (C) (Core Controller)
+	
+	- ParameterisedViewController
+	- UrlFilenameViewController (Implemetation by Spring)
+	- ViewController (Parent)
+
+	- MultiactionController (Capable of handling multiple requests)
+
+	- BaseCommandController
+		- AbstactFormConroller
+		- AbstractCommandController
+
+3. Validation Support
+4. I18N Support
+5. Interceptors Support
+6. View Resolver (InternalResourceViewResolver)
+7. Exception Handling  (Very Imp) (@ControllerAdvise, @ExceptionHandler)
+
+
+1 Beanfactory -> Core Container 
+  ApplicationContext
+
+IN Spring MVC WebApplicationContext (Web Container)
+
+
+--------------------------------------
+
+Recommanded - JSP model Arct. 
+
+
+
+
+
+
+
+
