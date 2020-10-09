@@ -29,7 +29,22 @@ IN Spring MVC WebApplicationContext (Web Container)
 
 --------------------------------------
 
-Recommanded - JSP model Arct. 
+Recommanded - JSP model Arct. , Common operation -> validation, authentication -> in one controller - JSP model 1 
+
+If controller is servlet -> JSP model 2 -> Spring designed using model 2  - DispatcherServlet by Spring (Front controller)
+
+If Fileters -> JSP model 3
+
+Tomcat Container supports below URL pattern
+ / -> all request
+ /login - filetring with login string
+ *.extention
+
+
+Tomcat version 8.5 
+
+
+
 
 
 
