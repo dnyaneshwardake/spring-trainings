@@ -18,7 +18,7 @@
 	<bean name="/welcome" class="com.test.controller.WelcomeController">
 	</bean>
 
-	<!-- 	View Resolver -->
+		<!-- View Resolver -->
 		<bean
 			class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 			<property name="prefix" value="/" />
