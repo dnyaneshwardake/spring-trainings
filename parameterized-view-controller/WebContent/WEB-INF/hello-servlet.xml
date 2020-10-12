@@ -8,23 +8,19 @@
            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 
-	<!-- Handler -->
-	<!-- <bean
+	<bean
 		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
-		
-Controller details
+
 	<bean name="/hello" class="com.test.controller.HelloController">
-	</bean>
-	<bean name="/welcome" class="com.test.controller.WelcomeController">
+		<property name="viewName" value="success"></property>
 	</bean>
 
-		View Resolver
-		<bean
-			class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-			<property name="prefix" value="/" />
-			<property name="suffix" value=".jsp" />
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".jsp" />
 
-		</bean> -->
+	</bean>
 
 
 </beans>

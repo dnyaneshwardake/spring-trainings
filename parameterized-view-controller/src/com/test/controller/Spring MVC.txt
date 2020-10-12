@@ -4,13 +4,15 @@ Spring MVC Features:
     - Controller (I) (Core Controller)
 	- AbstractController (C) (Core Controller) (internally Implementing abstract Controller)
 	
-	- ParameterisedViewController
+	- ParameterizedViewController
 	- UrlFilenameViewController (Implemetation by Spring)
 	- ViewController (Parent)
 
-	- MultiactionController (Capable of handling multiple requests)
-
-	- BaseCommandController
+	- MultiactionController (Capable of handling multiple requests) (Deprecated by spring , Reason: Annotation config provided better approach)
+		Working: 1. we have to give same method names in controller as action names coming from UI part 
+				 2. Methods in controller must have same signature like handleRequestmentod();
+		
+	- BaseCommandController (Form backup support) : Deprecated - We ahve UI framework for for bakup support, and new annotations config.
 		- AbstactFormConroller
 		- AbstractCommandController
 
