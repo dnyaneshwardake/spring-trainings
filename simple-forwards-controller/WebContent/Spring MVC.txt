@@ -47,6 +47,32 @@ Tomcat version 8.5
 
 
 
+========================================
+
+Spring DAO (Data access objects)
+
+1. JDBC (RDBMS)
+1. ORM (Object relation mapping) [Java representation tables]
+	a. EJB
+	b. JPA
+	c. Hibernate
+	d. Ibatics
+
+(Above all ORM are for RDBMS)
+
+3. LDAP - LDAP machine
+
+
+----------------------------
+
+Spring JDBC (JDBC template)
+	- Interface implemetation strategy.
+		1. frameworks keeps changing in market.
+		2. Have similar method signatures in DAO interfaces and Impl
+	
+	DAO Interface -> DAOImpl class
+	
+
 
 
 
