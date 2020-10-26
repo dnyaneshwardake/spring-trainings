@@ -11,7 +11,7 @@ public class StudentService {
 
 	public void addStudent(String name, String rollno) throws Exception {
 
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 
 		String query = "INSERT INTO student " + "VALUES ('" + name + "','" + rollno + "')";
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost/testdb", "root", "root");

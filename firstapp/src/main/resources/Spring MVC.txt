@@ -45,6 +45,54 @@ Tomcat version 8.5
 
 
 
+==============================================
+
+All below Annotation till now covered.
+
+@Bean				@Controller    // All four are streotype Anno
+@Scope				@Service
+@Autowired			@Repository
+@Qualifire			@Component
+
+
+@Configuration      @RequestParam   			*	@PathParam -> Not from Spring (from javax, can be used in REST)
+@ComponentScan		@PathVariable
+@RequestMapping
+
+-------------------------------------------------------------
+
+Simple REST in Spring MVC
+
+@Controller
+@ResponseBody
+
+COmbination of this 2 annotation is = @RestController
+
+Annotation useful in REST -> @Controller, @PathVariable, @RequestBody, @RequestParam
+
+============================================================
+
+
+Spring DAO
+
+JDBC Connection not reccommanded
+
+Use Connetion pool -> 15 
+
+
+DataSources vendors:
+
+1. DataSource (Interface)  -> SUN
+2. BasicDataSource -> Apache
+3. Spring -> DriverManagerDataSource (JDBCTemplate)
+4. Weblogic -> WebLogicDataSource
+
+
+
+
+
+
+
 
 
 
