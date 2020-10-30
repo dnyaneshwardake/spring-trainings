@@ -87,6 +87,11 @@ DataSources vendors:
 3. Spring -> DriverManagerDataSource (JDBCTemplate)
 4. Weblogic -> WebLogicDataSource
 
+Diffrence in basic JDBC and Basic DataSource by Apache
+
+
+
+
 
 
 
