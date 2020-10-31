@@ -60,18 +60,11 @@ public class StudentDaoImpl implements StudentDao {
 		 */
 
 		String sql = "select * from student where id= ?";
-		Student s = jt.queryForObject(sql, (rs, rowNum) -> {
-			try {
-				return mapRowToStudent(rs, rowNum);
-			} catch (Exception e) {// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return null;
-		}, id);
+		Student s = jt.queryForObject(sql, this::mapRowToStudent, id);
 		return s;
 	}
 
-	private Student mapRowToStudent(ResultSet rs, int rowNum) throws Exception {
+	private Student mapRowToStudent(ResultSet rs, int rowNum) throws SQLException {
 
 		return new Student(rs.getInt("id"), rs.getString("sname"), rs.getString("rollno"), rs.getNString("city"));
 	}
