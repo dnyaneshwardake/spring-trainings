@@ -22,7 +22,7 @@ public class StudentDaoImpl implements StudentDao {
 
 	@Autowired
 	private DataSource ds;
-	
+
 	@Autowired
 	private JdbcTemplate jt;
 
@@ -35,9 +35,9 @@ public class StudentDaoImpl implements StudentDao {
 		 * ps.executeUpdate(); con.close(); return result;
 		 */
 		String sql = "insert into student values(?,?,?,?)";
-		Object[] params = {student.getId(), student.getName(), student.getRollno(), student.getCity()};
+		Object[] params = { student.getId(), student.getName(), student.getRollno(), student.getCity() };
 		Integer result = jt.update(sql, params);
-		System.out.println("Result " +result);
+		System.out.println("Result " + result);
 		return result;
 	}
 
@@ -47,18 +47,37 @@ public class StudentDaoImpl implements StudentDao {
 	}
 
 	public Boolean delete(Student student) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "delete from student where id= ?";
+		int result = jt.update(sql, student.getId());
+		return result > 0;
 	}
 
 	public Student findById(Integer id) throws Exception {
-		String sql ="select * from student where id= ?";
-		Student s = jt.queryForObject(sql, new Object[] {id}, new BeanPropertyRowMapper<Student>(Student.class));
+		/*
+		 * String sql = "select * from student where id= ?"; Student s =
+		 * jt.queryForObject(sql, new Object[] { id }, new
+		 * BeanPropertyRowMapper<Student>(Student.class)); return s;
+		 */
+
+		String sql = "select * from student where id= ?";
+		Student s = jt.queryForObject(sql, (rs, rowNum) -> {
+			try {
+				return mapRowToStudent(rs, rowNum);
+			} catch (Exception e) {// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
+		}, id);
 		return s;
 	}
 
+	private Student mapRowToStudent(ResultSet rs, int rowNum) throws Exception {
+
+		return new Student(rs.getInt("id"), rs.getString("sname"), rs.getString("rollno"), rs.getNString("city"));
+	}
+
 	public List<Student> findAll() throws Exception {
-		 return jt.query("select * from student", new RowMapper<Student>() {
+		return jt.query("select * from student", new RowMapper<Student>() {
 
 			public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Student s = new Student();

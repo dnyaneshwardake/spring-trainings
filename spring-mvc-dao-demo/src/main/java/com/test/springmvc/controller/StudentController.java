@@ -7,6 +7,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -19,20 +24,37 @@ public class StudentController {
 	@Autowired
 	private StudentService studentService;
 
-	@RequestMapping("/addstudent")
-	public ModelAndView addStudent(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		Integer id = Integer.valueOf(request.getParameter("id"));
-		String name = request.getParameter("name");
-		String rollno = request.getParameter("rollno");
-		String city = request.getParameter("city");
+	/// When we want add some generic meesages in model and view we can add here ,
+	/// it will refered in ModelAndView
+	@ModelAttribute
+	public void testModelAttribute(Model model) {
+		model.addAttribute("headermesssage", "Spring MVC Sessions DAO-BDS");
+		model.addAttribute("testmsg", "Test Message");
+	}
 
-		Student student = new Student(id, name, rollno, city);
+	// When we dont want to bind particular form fields to MAV do it by below method
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		binder.setDisallowedFields(new String[] { "rollno"});
+		
+	}
+
+	@RequestMapping("/addstudent")
+	public ModelAndView addStudent(@ModelAttribute("std") Student student, BindingResult result) throws Exception {
+
+		if (result.hasErrors()) {
+			System.out.println("Having errors in binding");
+			ModelAndView m = new ModelAndView();
+			m.setViewName("index");
+			return m;
+		}
+
 		System.out.println(student);
 
-		Integer result = studentService.addStudent(student);
+		Integer value = studentService.addStudent(student);
 
 		ModelAndView mav = new ModelAndView();
-		if (result > 0) {
+		if (value > 0) {
 			mav.setViewName("success");
 			mav.addObject("msg", "Successfully added student");
 		} else {
@@ -61,6 +83,23 @@ public class StudentController {
 		} else {
 			mav.setViewName("success");
 			mav.addObject("msg", "Failed to update student");
+		}
+		return mav;
+	}
+
+	@RequestMapping("/deletestudent")
+	public ModelAndView deleteStudent(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		Integer id = Integer.valueOf(request.getParameter("id"));
+		Student s = new Student(id, "", "", "");
+		Boolean result = studentService.deleteStudent(s);
+
+		ModelAndView mav = new ModelAndView();
+		if (result) {
+			mav.setViewName("success");
+			mav.addObject("msg", "Successfully deleted student");
+		} else {
+			mav.setViewName("success");
+			mav.addObject("msg", "Failed to delete Student..");
 		}
 		return mav;
 	}

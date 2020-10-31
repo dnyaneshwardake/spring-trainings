@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +7,9 @@
 <title>Success page</title>
 </head>
 <body>
- Message: 	${msg} <p>
-	<br>
-	${std}
+	<h2>${headermesssage}</h2>
+	Message: ${msg}
+	<p>
+		<br> ${std}
 </body>
 </html>

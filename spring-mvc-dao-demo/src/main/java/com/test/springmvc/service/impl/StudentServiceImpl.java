@@ -30,8 +30,7 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	public Boolean deleteStudent(Student student) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return studentDao.delete(student);
 	}
 
 	public Student getStudentById(Integer id) throws Exception {
