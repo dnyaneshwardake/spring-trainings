@@ -26,6 +26,8 @@ tmp/
 local.properties
 .settings/
 .loadpath
+/.metadata/
+Servers/
 
 build/
 
