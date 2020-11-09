@@ -59,10 +59,15 @@ public class StudentDaoImpl implements StudentDao {
 		 * BeanPropertyRowMapper<Student>(Student.class)); return s;
 		 */
 
+		
+		// other way
 		String sql = "select * from student where id= ?";
+		
 		Student s = jt.queryForObject(sql, this::mapRowToStudent, id);
 		return s;
 	}
+	
+	
 
 	private Student mapRowToStudent(ResultSet rs, int rowNum) throws SQLException {
 
