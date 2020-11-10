@@ -20,13 +20,24 @@ public class StudentController {
 		if (result.hasErrors()) {
 			System.out.println("Having errors in binding");
 			ModelAndView m = new ModelAndView();
-			m.setViewName("index"); 
+			m.setViewName("index");
 			return m;
 		}
 
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("success");
 		mav.addObject("msg", "Successfully added student");
+
+		return mav;
+
+	}
+
+	@RequestMapping("/testapp")
+	public ModelAndView testapp() throws Exception {
+
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("success");
+		mav.addObject("msg", "Successfully tested app");
 
 		return mav;
 
